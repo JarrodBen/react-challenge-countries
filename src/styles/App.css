@@ -1,38 +1,230 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@0;1&display=swap');
+
+:root {
+  --dark-mode-element: hsl(208, 23%, 22%);
+  --dark-mode-background: hsl(209, 26%, 17%);
+  --dark-mode-text: hsl(0, 0%, 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html, body {
+  height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--dark-mode-background);
+}
+
+button, input {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+button {
+  padding: 3.2px 32px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Dark Mode Classes */
+.dark-container {
+  background-color: var(--dark-mode-background);
+  color: var(--dark-mode-text);
+}
+.dark-element {
+  background-color: var(--dark-mode-element);
+  color: var(--dark-mode-text);
+}
+
+.dark-shadow {
+  box-shadow: 0 10px 10px rgba(26, 37, 48, 0.5);
+}
+
+/* Header */
+.header {
+  font-size: 16px;
+  padding: 32px 64px;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Container */
+.container {
+  padding: 48px 96px;
+  min-height: 100%;
+}
+
+/* Input Container */
+select {
+  padding: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+select:focus {
+  border: none;
+  outline: none;
+}
+
+.home-input-container {
+  margin-bottom: 48px;
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-input-container div {
+  padding-top:  16px;
+}
+
+.home-input-container div input {
+  padding: 16px;
+  border-radius: 5px;
+}
+
+/* HomeContainer */
+.home-country-container {
+  font-size: 16px;
+  display: grid;
+  gap: 48px;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-rows: auto;
+}
+
+.home-country-card {
+  border-radius: 5px;
+}
+
+.home-flag {
+  display: block;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+
+.home-country-info {
+  margin: 0 16px;
+  padding: 16px;
+}
+
+.home-country-name {
+  padding-bottom: 16px;
+}
+
+.home-country-stats {
+  margin: 0 0 16px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.home-country-stats ul {
+  list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.home-country-stats ul li {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.stats {
+  font-weight: 600;
+}
+
+/* Detail Page */
+.detail-country-container {
+  font-size: 20px;
+}
+
+.detail-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.detail-name-div {
+  margin: 24px 0;
+}
+
+.detail-country-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+.detail-country-stats div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.detail-flag {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.detail-country-stats ul {
+  list-style: none;
+}
+
+.detail-country-stats ul li {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.stats {
+  font-weight: 600;
+}
+
+.borders-list button {
+  font-size: 12px;
+  margin-right: 16px;
+}
+
+@media screen and (max-width: 420px) {
+  .header {
+    font-size: 12px;
+    padding: 29px 32px;
   }
-  to {
-    transform: rotate(360deg);
+  .home-country-container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .detail-country-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  #country-search {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 710px) {
+  .container {
+    padding: 16px 24px;
+    font-size: 13px;
+  }
+  .detail-wrapper {
+    grid-template-columns: 1fr;
   }
 }
